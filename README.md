@@ -21,7 +21,9 @@ We assume that
 ## Deployment
 - kubectl apply -f manifest.yml 
 - One way to have a deployment without downtime, is with the Rolling update strategy, adding to the deployment resource 
--   strategy:
+```yaml    
+    strategy:
     rollingUpdate:
       maxUnavailable: 0
     type: RollingUpdate
+```    
