@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drixit-mongo
+  labels:
+    app: drixit-api
+  namespace: drixit-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drixit-api
+  template:
+    metadata:
+      labels:
+        app: drixit-api
+    spec:
+      containers:
+      - name: mongo-drixit
+        image: mongo:4.2
+        ports:
+        - containerPort: 27017
